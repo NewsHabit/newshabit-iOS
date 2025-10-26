@@ -1,0 +1,13 @@
+import UIKit
+
+{% for catalog in catalogs %}
+{% if catalog.name == "Color" %}
+public extension UIColor {
+{% for color in catalog.assets %}
+    static var {{ color.name|swiftIdentifier:"pretty"|lowerFirstWord }}: UIColor {
+        return UIColor(named: "{{ color.name }}", in: .module, compatibleWith: nil)!
+    }
+{% endfor %}
+}
+{% endif %}
+{% endfor %}
