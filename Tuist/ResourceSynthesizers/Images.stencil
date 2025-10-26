@@ -1,0 +1,13 @@
+import UIKit
+
+{% for catalog in catalogs %}
+{% if catalog.name == "Image" %}
+public extension UIImage {
+{% for image in catalog.assets %}
+    static var {{ image.name|swiftIdentifier:"pretty"|lowerFirstWord }}: UIImage {
+        return UIImage(named: "{{ image.name }}", in: .module, compatibleWith: nil)!
+    }
+{% endfor %}
+}
+{% endif %}
+{% endfor %}
