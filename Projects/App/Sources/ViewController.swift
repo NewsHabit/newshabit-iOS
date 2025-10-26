@@ -21,5 +21,9 @@ class ViewController: BaseViewController<UIView> {
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.present(AlertViewController(type: .alert(title: "타이틀", message: "메시지", actionText: "확인")), animated: false)
+        }
     }
 }
