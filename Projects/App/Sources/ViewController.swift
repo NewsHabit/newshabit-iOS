@@ -9,10 +9,10 @@ import UIKit
 
 import DesignKit
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController<UIView> {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        configureNavigationBar(with: .back("타이틀"))
         
         let label = UILabel()
         label.text = "NewsHabit"
