@@ -7,9 +7,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+import DesignKit
+
+class ViewController: BaseViewController<UIView> {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        configureNavigationBar(with: .back("타이틀"))
+        
+        let label = UILabel()
+        label.text = "NewsHabit"
+        label.font = .logo(size: 40)
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.present(BottomSheetViewController(bottomSheetHeight: 520), animated: false)
+        }
     }
 }
