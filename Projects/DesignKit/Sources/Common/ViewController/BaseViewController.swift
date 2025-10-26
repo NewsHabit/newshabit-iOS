@@ -31,6 +31,17 @@ open class BaseViewController<View: UIView>: UIViewController {
     
     public lazy var bookmarkButton = makeButton(with: .bookmark)
     
+    // MARK: - Init
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Lifecycle
     
     open override func viewDidLoad() {

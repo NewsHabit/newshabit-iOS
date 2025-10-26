@@ -23,7 +23,7 @@ class ViewController: BaseViewController<UIView> {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.present(AlertViewController(type: .alert(title: "타이틀", message: "메시지", actionText: "확인")), animated: false)
+            self.present(BottomSheetViewController(bottomSheetHeight: 520), animated: false)
         }
     }
 }
