@@ -17,7 +17,7 @@ final class Interceptor: RequestInterceptor {
     private let authType: AuthorizationType
     
     init(
-        keychainStorage: SecureStorage = KeychainStorage.shared,
+        keychainStorage: SecureStorage = DIContainer.shared.resolve(),
         authType: AuthorizationType
     ) {
         self.keychainStorage = keychainStorage
